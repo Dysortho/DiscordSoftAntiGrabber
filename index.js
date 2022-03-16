@@ -12,7 +12,7 @@ function main() {
     })
 }
 function startDiscord(name, new_path) {
-    exec(`${new_path}\\Update.exe --processStart ${name}.exe`, (err, stdout, stderr) => {
+    exec(`${new_path}\\Update.exe --processStart ${name}.exe`, (err, stdout, stderr) => {// Vous aurez des erreurs et vos discord ne se lancerons pas si vous avez un espace dans votre pseudo.
         if (err) console.log(err);
         else console.log(`\x1b[32mProcess started!\x1b[0m (${name})`);
     })
